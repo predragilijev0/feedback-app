@@ -1,5 +1,5 @@
-// import { v4 as uuidv4 } from 'uuid'
-import { createContext, useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import {createContext, useState} from 'react'
 
 const FeedbackContext = createContext()
 
@@ -29,8 +29,6 @@ export const FeedbackProvider = ({children}) => {
 
     const deleteFeedback = (id) => {
         if(window.confirm('Are you sure you want to delete?')) {
-            await fetch(`/feedback/${id}`, { method: 'DELETE' })
-
            setFeedback(feedback.filter((item) => item.id !== id))
         }
     }
